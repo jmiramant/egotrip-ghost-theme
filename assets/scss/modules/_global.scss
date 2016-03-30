@@ -46,7 +46,6 @@ a {
   color: $link-color;
   position: relative;
   text-decoration: none;
-  transition: all $aside-animation-time;
 
   &:hover {
     color: $hover-color;

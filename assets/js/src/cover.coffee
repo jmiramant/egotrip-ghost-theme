@@ -19,10 +19,17 @@ $ ->
   $("#{window.open_button}, #avatar-link").click (event) ->
     if Uno.is 'page', 'home'
       event.preventDefault()
-      location.hash = if location.hash is '' then '#open' else ''
+      location.hash = if location.hash is ''
+        videoPlayer.YTPPause()
+        '#open'
+      else
+        videoPlayer.YTPPlay()
       return $('#menu-button').trigger 'click' unless Uno.is 'device', 'desktop'
       _expand form: 'toggle'
 
   if (Uno.is 'device', 'desktop') and (Uno.is 'page', 'home')
     _animate()
     _expand form: 'hide' if !isOpen
+
+  videoPlayer = $('.player').YTPlayer();
+  if location.has is '#open' then  videoPlayer.YTPPause();
