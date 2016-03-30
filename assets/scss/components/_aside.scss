@@ -9,9 +9,8 @@
 
   border-right: 1px solid $gray;
   box-shadow: 10.5px -10px 1px -9px $gray-light;
-
+  background: #ffffff;
   &.animated {
-    transition: width $aside-animation-time $aside-animation;
   }
   &.expanded {
     width: 100%;
@@ -60,11 +59,12 @@
 
       color: $gray-lightest;
     }
-    > img {
-      width: 7rem;
-
-      border: 2px solid rgba($primary-color, .1);
-      box-shadow: 0 0 1px 1px rgba(000, 000, 000, .3);
+    .img-container {
+      width: 11rem;
+      height: 11rem;
+      overflow: hidden;
+      border-radius: 11rem;
+      margin: 0 auto;
     }
   }
 }
@@ -85,10 +85,7 @@
         &.expanded {
           display: inline-block;
           margin: 0 5px;
-
-          border-radius: 20px;
-
-          @include btn-cover-with-border;
+          font-size: 27px;
 
           > a {
             padding: .625rem 1.25rem;
@@ -102,8 +99,6 @@
 
           opacity: .8;
           color: $gray-lightest;
-
-          @include btn-cover;
 
           &:hover {
             color: $hover-color;
@@ -140,5 +135,31 @@
         }
       }
     }
+  }
+}
+.pattern {
+  background-image:url(../../assets/img/pattern.png);
+  background-repeat: repeat;
+  background-attachment:scroll;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0
+}
+#controlBar_bgndVideo {display:none !important}
+
+.signature {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+  height: 0;
+  padding-bottom: 36.309735%;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

@@ -39,6 +39,7 @@ src =
     main   : ['assets/js/src/__init.coffee'
               'assets/js/src/main.coffee'
               'assets/js/src/cover.coffee'
+              'assets/js/src/signature.coffee'
               'assets/js/src/search.coffee']
     vendor : ['assets/vendor/fastclick/lib/fastclick.js'
               'assets/vendor/ghostHunter/jquery.ghostHunter.min.js'
