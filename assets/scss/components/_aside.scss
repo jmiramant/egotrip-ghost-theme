@@ -59,12 +59,21 @@
 
       color: $gray-lightest;
     }
+    .img-space-holder {
+      width: 8rem;
+      margin: 0 auto 4rem;
+      height: 6rem;
+    }
+
     .img-container {
-      width: 11rem;
-      height: 11rem;
+      width: 8rem;
+      height: 8rem;
       overflow: hidden;
       border-radius: 11rem;
-      margin: 0 auto;
+      display: none;
+      img {
+        width: 100%;
+      }
     }
   }
 }

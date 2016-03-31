@@ -1,0 +1,132 @@
+#about {
+  .heading {
+    text-align: center;
+    span:first-child {
+      font-size: 40px;
+    }
+  }
+
+  .subtitle {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: none;
+    line-height: 18px;
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
+
+  .resume {
+    .about-icon {
+      display: inline-flex;
+    }
+  }
+
+}
+
+
+//vars
+$fg: $base-red;
+$bg: rgba(234,97,83,0.4);
+$pi: 3.14;
+
+//config
+$menu-items: 2;
+$open-distance: 105px;
+$opening-angle:$pi*2;
+
+%goo{
+  filter:url('#shadowed-goo');
+}
+%ball{
+  background:$fg;
+  border-radius:100%;
+  width:40px;
+  height:40px;
+  margin-left:-40px;
+  position:absolute;
+  top:20px;
+  color:white;
+  text-align:center;
+  line-height:40px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+.menu-open{
+  display:none;
+}
+.menu-item{
+  @extend %ball;
+}
+.menu{
+  @extend %goo;
+  $width:650px;
+  $height:150px;
+  position:absolute;
+  left:50%;
+  margin-left:-80px;
+  padding-top:20px;
+  padding-left:80px;
+  width:$width;
+  height:$height;
+  box-sizing:border-box;
+  font-size:20px;
+  text-align:left;
+}
+
+
+.menu-item{
+  &:hover{
+    background:$bg;
+    color:#f6f6f6;
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
+    }
+  }
+}
+
+.menu-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
+}
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
+}
+
+//.menu-open:checked~.menu-item{
+//  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+//  @for $i from 1 through $menu-items{
+//    $angle:(($pi - $opening-angle)/2)+(($opening-angle/($menu-items - 1))*($i - 1));
+//    &:nth-child(#{$i+2}){
+//      transition-duration:90ms+(100ms*$i);
+//      transform:translate3d(55px*$i,0,0);
+//    }
+//  }
+//}
+
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.935, 0.000, 0.340, 1.330);
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:80ms+(100ms*$i);
+      @if $i == 1 {
+        transform:translate3d(55px,0,0);
+      } @else {
+        transform:translate3d(-55px,0,0);
+      }
+    }
+  }
+}

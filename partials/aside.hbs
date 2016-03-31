@@ -6,18 +6,20 @@
     <div class="profile">
       {{#if @blog.title}}
       <a id="avatar-link" title="link to homepage for {{@blog.title}}" href="{{@blog.url}}/#open">
-        <div class='img-container'>
-          <img src="../../assets/img/me2.jpeg" alt="{{@blog.title}} avatar"
-          class="profile avatar" />
+        <div class='img-space-holder'>
+          <div class='img-container animated fadeIn'>
+            <img src="../../assets/img/me2.jpeg" alt="{{@blog.title}} avatar"
+            class="profile avatar" />
+          </div>
         </div>
         {{> signature}}
         <h3 id="profile-resume"></h3>
       </a>
       {{/if}}
       <hr class="divider long" />
-      <p>{{@blog.description}}</p>
+      <p class='animated fadeIn'>{{@blog.description}}</p>
       <hr class="divider short" />
-      <div class="navigation">
+      <div class="navigation animated fadeIn">
         <div class="profile contact">
           {{navigation}}
           {{> social}}

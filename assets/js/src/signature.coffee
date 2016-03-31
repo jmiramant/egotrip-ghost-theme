@@ -27,7 +27,7 @@ window.signature =
       paths = $('path, circle, rect', this)
 
       paths.on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', (e) =>
-        $path= $(e.currentTarget);
+        $path = $(e.currentTarget);
         $path.css('transition', 'fill 2000ms ease')
              .attr('fill', 'rgba(234,97,83,0.8)')
       )
@@ -40,10 +40,16 @@ window.signature =
         $path.css('transition', 'stroke-dashoffset ' + speed + 'ms ' + delay + 'ms linear')
                .attr('stroke-dashoffset', '0')
 
+  showProfileImage: ->
+    setTimeout( ->
+      $('.img-container').show();
+    , 750)
+
 $(document).ready ->
   window.signature.initialize()
 
 $(window).load ->
   setTimeout( ->
     window.signature.animate()
+    window.signature.showProfileImage()
   , 500)
